@@ -17,6 +17,7 @@ const Search = () => {
         }
       })
       setResults(data.query.search)
+      console.log(data.query.search)
     }
     if (term) {
       search()
@@ -25,16 +26,16 @@ const Search = () => {
 
   const renderedResults = results.map((result) => {
     return (
-      <div>
         <div key={result.pageid} className="item">
           <div className="content">
             <div className="header">
-              {result.title}
+              <a href={`https://en.wikipedia.org?curid=${result.pageid}`}>      
+                {result.title}
+              </a>
             </div>
-            {result.snippet}
+            <span dangerouslySetInnerHTML={{ __html: result.snippet}}></span>
           </div>
         </div>
-      </div>
     )
   })
 
