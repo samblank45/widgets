@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Accordion from './components/Accordion'
 import Search from './components/Search'
-
+import DropDown from './components/DropDown'
 const items = [
   {
     title: 'What is React?',
@@ -17,15 +17,30 @@ const items = [
   }
 ]
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {/* <Accordion items={items}/> */}
-        <Search />
-      </div>
-    )
+const options = [
+  {
+    label: 'the color red',
+    value: 'red'
+  },
+  {
+    label: 'the color green',
+    value: 'green'
+  },
+  {
+    label: 'A shade of blue',
+    value: 'blue'
   }
-}
+]
+export default () => {
+  const [selected, setSelected] = useState(options[0])
 
-export default App
+  return  (
+    <div>
+      <DropDown 
+        selected={selected} 
+        onSelectedChange={setSelected}
+        options={options}
+      />
+    </div>
+  )
+}

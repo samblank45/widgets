@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Search = () => {
-  const [term, setTerm] = useState('')
+  const [term, setTerm] = useState('fishing')
   const [results, setResults] = useState([])
 
   useEffect(() => {
@@ -12,14 +12,14 @@ const Search = () => {
           action: 'query',
           list: 'search',
           origin: '*',
-          format: 'json',
+          format: 'json', 
           srsearch: term
         }
       })
       setResults(data.query.search)
     }
 
-    const timeoutId = setTimeout(() => {
+    const timeoutId = setTimeout(() => { 
       if (term) { 
         search()
       }
