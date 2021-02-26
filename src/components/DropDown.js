@@ -4,7 +4,9 @@ const DropDown = ({options, selected, onSelectedChange}) => {
   const [open, setOpen] = useState(false) 
 
   useEffect(() => {
-    document.body.addEventListener('click', () => {
+    document.body.addEventListener('click', (event) => {
+      console.log(event.target)
+      console.log('BODY CLICK')
       setOpen(false)
     }, {capture: true})
   }, [])
@@ -18,7 +20,10 @@ const DropDown = ({options, selected, onSelectedChange}) => {
       <div 
         key={option.value} 
         className="item"
-        onClick={() => onSelectedChange(option)}
+        onClick={() => {
+          console.log('ITEM CLICKED')
+         onSelectedChange(option)
+        }}
       >
         {option.label}
       </div>
@@ -30,7 +35,10 @@ const DropDown = ({options, selected, onSelectedChange}) => {
      <div className="field">
        <label className="label">Select Color</label>
        <div 
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          console.log('DROPDOWN CLICKED')
+          setOpen(!open)
+        }}
         className={`ui selection dropdown ${ open ? 'visible active' : ''}`}
         >
          <i className="dropdown icon"></i>
