@@ -52,7 +52,7 @@ const Search = () => {
         <div className="field">
           <label>Enter Search Term</label>
           <input 
-            className="input" f
+            className="input" 
             value={term}
             onChange={e => setTerm(e.target.value)}
           />

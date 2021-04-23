@@ -23,7 +23,7 @@ const items = [
 const options = [
   {
     label: 'the color red',
-    value: 'red'
+    value: 'red' 
   },
   {
     label: 'the color green',
@@ -34,11 +34,39 @@ const options = [
     value: 'blue'
   }
 ]
+
+const showAccordion = () => {
+  if (window.location.pathname === '/') {
+    return <Accordion items={items} />
+  }
+}
+
+const showList = () => {
+  if (window.location.pathname === '/list') {
+    return <Search />
+  }
+}
+
+const showDropDown = () => {
+  if (window.location.pathname === '/dropdown') {
+    return <DropDown />
+  }
+}
+
+const showTranslate = () => {
+  if (window.location.pathname === '/translate') {
+    return <Translate />
+  }
+}
+
 export default () => {
 
   return  (
     <div>
-      <Translate />
+      {showAccordion()}
+      {showList()}
+      {showDropDown()}
+      {showTranslate()}
     </div>
   )
 }
